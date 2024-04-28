@@ -1,13 +1,16 @@
-import Lists from "./Lists";
-import Student from "./Student";
-import UserGreeting from "./UserGreeting";
-import Button from "./Button";
+import Counter from "./Counter";
+import MyComponent from "./MyComponent";
 
 // props-- read only properties that are shared b/2 components.
 // parent comp can send data to child comp
 // <Comp key=value/>
 
 // click event --> interaction when a user clicks on a specific element we can respond to clicks by passing a callback to onCLick event handler
+
+// react hook --> special func that allows func comp to use react features without writing class comp
+// (useState, useEffect, useContext, useReducer, useCallback and more..)
+
+// useState() -> a react hook that allows the creation of a stateful var and a setter func to update it's val in its virtual dom [name, setname]
 function App() {
   const fruits = [
     { id: 1, name: "apple", calories: "ap" },
@@ -36,7 +39,10 @@ function App() {
       {vegetables.length > 0 && (
         <Lists items={vegetables} category="Vegetables" />
       )} */}
-      <Button />
+      {/* <Button /> */}
+      <MyComponent />
+
+      {/* <Counter /> */}
     </>
   );
 }
