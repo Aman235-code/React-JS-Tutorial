@@ -1,5 +1,4 @@
-import Counter from "./Counter";
-import MyComponent from "./MyComponent";
+import ColorPicker from "./ColorPicker";
 
 // props-- read only properties that are shared b/2 components.
 // parent comp can send data to child comp
@@ -40,9 +39,11 @@ function App() {
         <Lists items={vegetables} category="Vegetables" />
       )} */}
       {/* <Button /> */}
-      <MyComponent />
+      {/* <MyComponent /> */}
 
       {/* <Counter /> */}
+
+      <ColorPicker />
     </>
   );
 }
