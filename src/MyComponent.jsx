@@ -3,6 +3,10 @@ import React, { useState } from "react";
 // OnChange = event handler used primarily with form elements
 // eg: input, textarea, select, radio traiigers a fundc every time the val of ip changes
 
+// updater func -  A func passed as an arg to setState() usually ex ReadableStreamBYOBReader(year+1)
+// allow for safe updates based on prev state Used with multiple state updates and asunc func
+// Good practise to use updater func
+
 function MyComponent() {
   // const [name, setName] = useState("Guest");
   // const [age, setAge] = useState(0);
@@ -12,6 +16,20 @@ function MyComponent() {
   const [comment, setcomment] = useState("");
   const [payment, setpayment] = useState("Visa");
   const [shipping, setshipping] = useState("");
+  const [car, setcar] = useState({
+    year: 2024,
+    make: "Ford",
+    model: "Mustang",
+  });
+  function HandleYearCh(event) {
+    setcar((car) => ({ ...car, year: event.target.value }));
+  }
+  function HandleMakeCh(event) {
+    setcar((car) => ({ ...car, make: event.target.value }));
+  }
+  function HandleModelCh(event) {
+    setcar((car) => ({ ...car, model: event.target.value }));
+  }
   function handleNamechange(event) {
     setname(event.target.value);
   }
@@ -50,7 +68,7 @@ function MyComponent() {
 
       <p>Is Employed: {isEmployed ? "Yes" : "No"}</p>
       <button onClick={toggleEmployed}>Toggle Employed</button> */}
-
+      {/* 
       <input type="text" value={name} onChange={handleNamechange} />
       <p>Name: {name}</p>
 
@@ -105,7 +123,36 @@ function MyComponent() {
         />
         Delivery
       </label>
-      <p>Shipping : {shipping}</p>
+      <p>Shipping : {shipping}</p> */}
+
+      <p>
+        Car is: {car.year} {car.make} {car.model}
+        <br />
+        <input
+          type="number"
+          onChange={HandleYearCh}
+          name=""
+          value={car.year}
+          id=""
+        />
+        <br />
+        <input
+          type="text"
+          onChange={HandleMakeCh}
+          name=""
+          value={car.make}
+          id=""
+        />
+        <br />
+        <input
+          type="text"
+          onChange={HandleModelCh}
+          name=""
+          value={car.model}
+          id=""
+        />
+        <br />
+      </p>
     </div>
   );
 }
